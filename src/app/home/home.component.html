@@ -1,0 +1,26 @@
+<div style="text-align: center">
+  <div style="text-align:center">
+    <h1>
+      {{ title }},
+    </h1>
+  </div>
+  <h4>aujourd'hui le temps sera :</h4>
+  <div class="row">
+    <mz-input-container class="col s4 offset-s3">
+      <input mz-input
+             [(ngModel)]="search"
+             [label]="'Rechercher une ville'"
+             length="150"
+             type="text">
+    </mz-input-container>
+    <button mz-button class="col s2" (click)="getBySearch(search)" style="margin-top: 25px">Rechercher</button>
+  </div>
+
+  <div *ngIf="meteo">
+    <h5 style="font-weight: bold">{{meteo.name}}</h5>
+    <h5>{{weather[actualWeather | lowercase]}}</h5>
+    <img src="../../assets/img/{{actualWeather | lowercase}}.png">
+  </div>
+</div>
+
+
